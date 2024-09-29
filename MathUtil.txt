@@ -1,0 +1,96 @@
+public class MathUtil  {
+    // Статические методы
+    // Проверка простое ли число
+    // Простое число(делится на себя и на 1)
+    // Начинается с 2
+    public static boolean isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+    //НОД
+    //temp временная переменная
+    // нод a and b
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+    //Нок a and b
+    //используем нод a and b в формуле
+    public static int lcm(int a, int b) {
+        return a * b / gcd(a, b);
+    }
+    //Возвращает n-ое число Фибоначчи.
+     //n порядковый номер числа в последовательности Фибоначчи
+    public static int fibonacci(int n) {
+        if (n <= 1) return n;
+        int a = 0, b = 1;
+        for (int i = 2; i <= n; i++) {
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+        return b;
+    }
+    //Вычисляет факториал числа n
+    //По определению 0!=1
+    public static long factorial(int n) {
+        if (n == 0) return 1;
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+    // Нестатические методы
+    public boolean isPerfectNumber(int n) {
+        if (n <= 1) return false; // Совершенные числа начинаются с 2
+        int sum = 1; // Начинаем с 1, так как 1 является делителем любого числа
+        for (int i = 2; i <= Math.sqrt(n); i++) { // Проходим по всем делителям от 2 до √n
+            if (n % i == 0) { // Если i — делитель n
+                sum += i; // Добавляем делитель
+                if (i != n / i) sum += n / i; // Добавляем пару, если она не равна i
+            }
+        }
+        return sum == n; // Проверяем, является ли сумма делителей равной n
+    }
+    //Вычисляет сумму цифр числа.
+    public int sumOfDigits(int n) {
+        int sum = 0;
+        while (n != 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
+    public int reverseNumber(int n) {
+        int reversed = 0;
+        while (n != 0) {
+            int digit = n % 10;
+            reversed = reversed * 10 + digit;
+            n /= 10;
+        }
+        return reversed;
+    }
+    public boolean isArmstrongNumber(int n) {
+        int sum = 0, temp = n, digits = Integer.toString(n).length();
+        while (temp != 0) {
+            sum += Math.pow(temp % 10, digits);
+            temp /= 10;
+        }
+        return sum == n;
+    }
+    public int nextPrime(int n) {
+        int candidate = n + 1;
+        while (!isPrime(candidate)) {
+            candidate++;
+        }
+        return candidate;
+    }
+}
