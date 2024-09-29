@@ -1,0 +1,15 @@
+public static void main(String[] args) {
+    // Тестирование статических методов
+    System.out.println("isPrime(11): " + MathUtil.isPrime(11)); // true
+    System.out.println("gcd(24, 36): " + MathUtil.gcd(24, 36)); // 12
+    System.out.println("lcm(12, 15): " + MathUtil.lcm(12, 15)); // 60
+    System.out.println("fibonacci(10): " + MathUtil.fibonacci(10)); // 55
+    System.out.println("factorial(5): " + MathUtil.factorial(5)); // 120
+    // Тестирование нестатических методов
+    MathUtil mathUtil = new MathUtil();
+    System.out.println("isPerfectNumber(28): " + mathUtil.isPerfectNumber(28)); // true
+    System.out.println("sumOfDigits(123): " + mathUtil.sumOfDigits(123)); // 6
+    System.out.println("reverseNumber(1234): " + mathUtil.reverseNumber(1234)); // 4321
+    System.out.println("isArmstrongNumber(153): " + mathUtil.isArmstrongNumber(153)); // true
+    System.out.println("nextPrime(14): " + mathUtil.nextPrime(14)); // 17
+    }
