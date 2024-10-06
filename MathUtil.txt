@@ -26,8 +26,8 @@ public class MathUtil  {
     public static int lcm(int a, int b) {
         return a * b / gcd(a, b);
     }
-    //Возвращает n-ое число Фибоначчи.
-     //n порядковый номер числа в последовательности Фибоначчи
+  
+   
     public static int fibonacci(int n) {
         if (n <= 1) return n;
         int a = 0, b = 1;
@@ -50,15 +50,15 @@ public class MathUtil  {
     }
     // Нестатические методы
     public boolean isPerfectNumber(int n) {
-        if (n <= 1) return false; // Совершенные числа начинаются с 2
-        int sum = 1; // Начинаем с 1, так как 1 является делителем любого числа
-        for (int i = 2; i <= Math.sqrt(n); i++) { // Проходим по всем делителям от 2 до √n
+        if (n <= 1) return false; 
+        int sum = 1; 
+        for (int i = 2; i <= Math.sqrt(n); i++) { 
             if (n % i == 0) { // Если i — делитель n
                 sum += i; // Добавляем делитель
-                if (i != n / i) sum += n / i; // Добавляем пару, если она не равна i
+                if (i != n / i) sum += n / i;
             }
         }
-        return sum == n; // Проверяем, является ли сумма делителей равной n
+        return sum == n; 
     }
     //Вычисляет сумму цифр числа.
     public int sumOfDigits(int n) {
